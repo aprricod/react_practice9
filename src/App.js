@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Suspense } from "react";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import "./App.css";
+import Main from "./Comps/Main";
+import Form from "./Comps/Form";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Suspense>
+          <Switch>
+            <Route path="/main" component={Main} exact></Route>
+            <Route path="/form" component={Form} exact></Route>
+            <Redirect from="/404" to="/notFound" strict />
+            <Redirect from="/" to="/form" strict />
+          </Switch>
+        </Suspense>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -10,6 +10,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import PropTypes from "prop-types";
 import React from "react";
+import RegPage from "./RegPage";
 import SignInPage from "./SignInPage";
 
 function TabPanel(props) {
@@ -92,7 +93,7 @@ export default function Form() {
           />
           <Tab
             icon={<PersonAddIcon />}
-            aria-label="favorite"
+            aria-label="registration"
             {...a11yProps(1)}
             label="Регистрация"
           />
@@ -103,11 +104,7 @@ export default function Form() {
         <SignInPage />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div>В разработке</div>
-        {/* <FormControlLabel
-          control={<Checkbox name="checkedC" {...register("legal")} />}
-          label="Согласие на обработку данных"
-        /> */}
+        {/* <RegPage /> */}
       </TabPanel>
     </Card>
   );
